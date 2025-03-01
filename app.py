@@ -21,10 +21,11 @@ model = load_model()
 # ✅ Function to Preprocess Image
 def preprocess_image(image):
     image = image.convert("RGB")  # Ensure RGB format
-    image = image.resize((224, 224))  # ResNet50 requires 224x224 input size
+    image = image.resize((150, 150))  # ✅ Match the trained model input size
     image = np.array(image, dtype=np.float32) / 255.0  # Normalize (0-1 scale)
     image = np.expand_dims(image, axis=0)  # Add batch dimension
     return image
+
 
 # ✅ Streamlit UI
 st.markdown("""
